@@ -18,10 +18,23 @@ class ItemControl extends React.Component {
     }));
   }
 
+  handleIncrementItemQuantity = (id) => {
+    const findItem = this.state.mainItemList.filter(item => item.id === id)[0];
+    const updatedItem = {...findItem, quantity: findItem.quantity += 1};
+    const newListOfItems = this.state.mainItemList.filter(item => item.id !== id);
+    const updatedListOfItems = newListOfItems.concat(updatedItem);
+    this.setState({
+      mainItemList: updatedListOfItems,
+      formVisibleOnPage: false
+    });
+  }
+
   handleAddingNewItemToList = (newItem) => {
     const newMainItemList = this.state.mainItemList.concat(newItem);
-    this.setState({mainItemList: newMainItemList,
-      formVisibleOnPage: false });
+    this.setState({
+      mainItemList: newMainItemList,
+      formVisibleOnPage: false
+    });
   }
 
   render() {
@@ -31,7 +44,10 @@ class ItemControl extends React.Component {
       currentlyVisibleState = <NewItemForm onNewItemCreation={this.handleAddingNewItemToList}/>
       buttonText = "Return to Item List";
     } else {
-      currentlyVisibleState = <ItemList itemList={this.state.mainItemList} />;
+      currentlyVisibleState = <ItemList 
+        itemList={this.state.mainItemList} 
+        onIncreaseItemQuantity={this.handleIncrementItemQuantity} 
+      />;
       buttonText = "Add Item";
     }
     return (

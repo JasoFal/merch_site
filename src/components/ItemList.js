@@ -7,18 +7,23 @@ function ItemList(props) {
     <React.Fragment>
       <hr/>
       {props.itemList.map((item, index) =>
-        <Item name={item.name}
+        <Item
+          name={item.name}
           description={item.description}
           price={item.price}
           quantity={item.quantity}
-          key={index}/>
+          id={item.id}
+          key={index}
+          onIncreaseItemQuantity={props.onIncreaseItemQuantity}
+        />
       )}
     </React.Fragment>
   );
 }
 
 ItemList.propTypes = {
-  itemList: PropTypes.array
+  itemList: PropTypes.array,
+  onIncreaseItemQuantity: PropTypes.func,
 };
 
 export default ItemList;
