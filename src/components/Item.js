@@ -8,8 +8,7 @@ function Item(props) {
       <h3>{props.description}</h3>
       <h3>{props.price}</h3>
       <h3>{props.quantity}</h3>
-      <button>Buy</button>
-      <button>Restock</button>
+      <hr />
     </React.Fragment>
   );
 }
@@ -17,8 +16,8 @@ function Item(props) {
 Item.propTypes = {
   name: PropTypes.string,
   description: PropTypes.string,
-  price: PropTypes.int,
-  quantity: PropTypes.int
+  price: PropTypes.number,
+  quantity: PropTypes.number
 };
 
 export default Item;

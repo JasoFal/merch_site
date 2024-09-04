@@ -2,10 +2,10 @@ import React from "react";
 import Item from "./Item";
 import PropTypes from "prop-types";
 
-function ItemList() {
+function ItemList(props) {
   return (
     <React.Fragment>
-      <hr />
+      <hr/>
       {props.itemList.map((item, index) =>
         <Item name={item.name}
           description={item.description}

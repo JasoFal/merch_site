@@ -5,3 +5,5 @@ function Header() {
     <h1>Merch Site</h1>
   );
 }
+
+export default Header;
