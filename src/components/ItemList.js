@@ -15,6 +15,7 @@ function ItemList(props) {
           id={item.id}
           key={index}
           onIncreaseItemQuantity={props.onIncreaseItemQuantity}
+          onDecreaseItemQuantity={props.onDecreaseItemQuantity}
         />
       )}
     </React.Fragment>
@@ -24,6 +25,7 @@ function ItemList(props) {
 ItemList.propTypes = {
   itemList: PropTypes.array,
   onIncreaseItemQuantity: PropTypes.func,
+  onDecreaseItemQuantity: PropTypes.func
 };
 
 export default ItemList;

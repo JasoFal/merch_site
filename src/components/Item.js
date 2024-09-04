@@ -10,6 +10,7 @@ function Item(props) {
       <h3>{props.quantity}</h3>
       <hr />
       <button onClick={() => props.onIncreaseItemQuantity(props.id)}>Add Stock</button>
+      <button onClick={() => props.onDecreaseItemQuantity(props.id)}>Add to cart</button>
     </React.Fragment>
   );
 }
@@ -20,6 +21,7 @@ Item.propTypes = {
   price: PropTypes.number,
   quantity: PropTypes.number,
   onIncreaseItemQuantity: PropTypes.func,
+  onDecreaseItemQuantity: PropTypes.func
 };
 
 export default Item;
