@@ -1,6 +1,7 @@
 import React from "react";
 import ItemList from "./ItemList";
 import NewItemForm from "./NewItemForm";
+import ItemDetail from "./ItemDetails";
 
 class ItemControl extends React.Component {
 
@@ -8,14 +9,27 @@ class ItemControl extends React.Component {
     super(props);
     this.state = {
       formVisibleOnPage: false,
-      mainItemList: []
+      mainItemList: [],
+      selectedItem: null
     };
   }
 
   handleClick = () => {
-    this.setState(prevState => ({
-      formVisibleOnPage: !prevState.formVisibleOnPage
-    }));
+    if (this.state.selectedItem != null) {
+      this.setState({
+        formVisibleOnPage: false,
+        selectedItem: null,
+      });
+    } else {
+      this.setState(prevState => ({
+        formVisibleOnPage: !prevState.formVisibleOnPage
+      }));
+    }
+  }
+
+  handleChangingSelectedItem = (id) => {
+    const selectedItem = this.state.mainItemList.filter(item => item.id === id)[0];
+    this.setState({selectedItem: selectedItem});
   }
 
   handleIncrementItemQuantity = (id) => {
@@ -40,7 +54,6 @@ class ItemControl extends React.Component {
     });
   }
 
-
   handleAddingNewItemToList = (newItem) => {
     const newMainItemList = this.state.mainItemList.concat(newItem);
     this.setState({
@@ -52,12 +65,18 @@ class ItemControl extends React.Component {
   render() {
     let currentlyVisibleState = null;
     let buttonText = null;
-    if (this.state.formVisibleOnPage) {
+    if (this.state.selectedItem != null) { 
+      currentlyVisibleState = <ItemDetail 
+        item={this.state.selectedItem}
+      />
+      buttonText = "Return to Item List";
+    } else if (this.state.formVisibleOnPage) {
       currentlyVisibleState = <NewItemForm onNewItemCreation={this.handleAddingNewItemToList}/>
       buttonText = "Return to Item List";
     } else {
       currentlyVisibleState = <ItemList 
         itemList={this.state.mainItemList} 
+        onItemSelection={this.handleChangingSelectedItem}
         onIncreaseItemQuantity={this.handleIncrementItemQuantity} 
         onDecreaseItemQuantity={this.handleDecrementItemQuantity}
       />;

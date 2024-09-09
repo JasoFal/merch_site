@@ -6,14 +6,15 @@ function ItemList(props) {
   return (
     <React.Fragment>
       <hr/>
-      {props.itemList.map((item, index) =>
+      {props.itemList.map((item) =>
         <Item
+          whenItemClicked={ props.onItemSelection }
           name={item.name}
           description={item.description}
           price={item.price}
           quantity={item.quantity}
           id={item.id}
-          key={index}
+          key={item.id}
           onIncreaseItemQuantity={props.onIncreaseItemQuantity}
           onDecreaseItemQuantity={props.onDecreaseItemQuantity}
         />
