@@ -2,6 +2,7 @@ import React from "react";
 import ItemList from "./ItemList";
 import NewItemForm from "./NewItemForm";
 import ItemDetail from "./ItemDetails";
+import EditItemForm from "./EditItemForm";
 
 class ItemControl extends React.Component {
 
@@ -10,7 +11,8 @@ class ItemControl extends React.Component {
     this.state = {
       formVisibleOnPage: false,
       mainItemList: [],
-      selectedItem: null
+      selectedItem: null,
+      editing: false
     };
   }
 
@@ -19,12 +21,28 @@ class ItemControl extends React.Component {
       this.setState({
         formVisibleOnPage: false,
         selectedItem: null,
+        editing: false
       });
     } else {
       this.setState(prevState => ({
         formVisibleOnPage: !prevState.formVisibleOnPage
       }));
     }
+  }
+
+  handleEditClick = () => {
+    this.setState({editing: true});
+  }
+
+  handleEditingItemInList = (itemToEdit) => {
+    const editedMainItemList = this.state.mainItemList
+      .filter(item => item.id !== this.state.selectedItem.id)
+      .concat(itemToEdit);
+    this.setState({
+      mainItemList: editedMainItemList,
+      editing: false,
+      selectedItem: null
+    });
   }
 
   handleChangingSelectedItem = (id) => {
@@ -65,9 +83,16 @@ class ItemControl extends React.Component {
   render() {
     let currentlyVisibleState = null;
     let buttonText = null;
-    if (this.state.selectedItem != null) { 
+    if (this.state.editing) {
+      currentlyVisibleState = <EditItemForm 
+        item = {this.state.selectedItem} 
+        onEditItem = {this.handleEditingItemInList}
+      />
+      buttonText = "Return to Item List"
+    } else if (this.state.selectedItem != null) { 
       currentlyVisibleState = <ItemDetail 
         item={this.state.selectedItem}
+        onClickingEdit={this.handleEditClick}
       />
       buttonText = "Return to Item List";
     } else if (this.state.formVisibleOnPage) {
