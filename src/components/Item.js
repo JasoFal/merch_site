@@ -2,6 +2,7 @@ import React from "react";
 import PropTypes from "prop-types";
 
 function Item(props) {
+  let canDecrease = props.quantity > 0 ? true : false; 
   return (
     <React.Fragment>
       <div onClick={() => props.whenItemClicked(props.id)}>
@@ -9,10 +10,17 @@ function Item(props) {
         <h3>{props.description}</h3>
         <h3>{props.price}</h3>
         <h3>{props.quantity}</h3>
-        <hr />
-        <button onClick={() => props.onIncreaseItemQuantity(props.id)}>Add stock</button>
-        <button onClick={() => props.onDecreaseItemQuantity(props.id)}>Add to cart</button>
       </div>
+      {(canDecrease)
+        ? (
+          <button onClick={() => props.onDecreaseItemQuantity(props.id)}>Add to cart</button>
+        ) 
+        : (
+          <button disabled>Out of Stock</button>
+        )
+      }
+      <button onClick={() => props.onIncreaseItemQuantity(props.id)}>Add stock</button>
+      <hr />
     </React.Fragment>
   );
 }

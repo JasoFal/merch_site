@@ -80,6 +80,10 @@ class ItemControl extends React.Component {
     });
   }
 
+  handleStockLimit() {
+    console.log(this.state);
+  }
+
   handleAddingNewItemToList = (newItem) => {
     const newMainItemList = this.state.mainItemList.concat(newItem);
     this.setState({
@@ -114,6 +118,7 @@ class ItemControl extends React.Component {
         onIncreaseItemQuantity={this.handleIncrementItemQuantity} 
         onDecreaseItemQuantity={this.handleDecrementItemQuantity}
       />;
+      this.handleStockLimit();
       buttonText = "Add Item";
     }
     return (
