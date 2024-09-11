@@ -74,10 +74,18 @@ class ItemControl extends React.Component {
     const updatedItem = {...findItem, quantity: findItem.quantity -= 1};
     const newListOfItems = this.state.mainItemList.filter(item => item.id !== id);
     const updatedListOfItems = newListOfItems.concat(updatedItem);
-    this.setState({
-      mainItemList: updatedListOfItems,
-      formVisibleOnPage: false
-    });
+    if (this.state.selectedItem === null) {
+      this.setState({
+        mainItemList: updatedListOfItems,
+        formVisibleOnPage: false
+      });
+    } else {
+      this.setState({
+        mainItemList: updatedListOfItems,
+        formVisibleOnPage: false,
+        selectedItem: updatedItem
+      });
+    }
   }
 
   handleStockLimit() {
@@ -106,6 +114,8 @@ class ItemControl extends React.Component {
         item={this.state.selectedItem}
         onClickingEdit={this.handleEditClick}
         onClickingDelete = {this.handleDeletingItem}
+        onIncreaseItemQuantity={this.handleIncrementItemQuantity} 
+        onDecreaseItemQuantity={this.handleDecrementItemQuantity}
       />
       buttonText = "Return to Item List";
     } else if (this.state.formVisibleOnPage) {
