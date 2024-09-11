@@ -6,7 +6,7 @@ function ItemList(props) {
   return (
     <React.Fragment>
       <hr/>
-      {props.itemList.map((item) =>
+      {props.itemList.sort((item1, item2) => item1.price - item2.price).map((item) =>
         <Item
           whenItemClicked={ props.onItemSelection }
           name={item.name}
