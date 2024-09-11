@@ -5,8 +5,14 @@ import ItemControl from './ItemControl';
 function App() {
   return (
     <React.Fragment>
-      <Header />
-      <ItemControl />
+      <div class="container">
+        <div class="row-center">
+          <Header />
+        </div>
+        <div class="row-center">
+          <ItemControl />
+        </div>
+      </div>
     </React.Fragment>
   );
 }
