@@ -1,0 +1,67 @@
+<mxfile host="app.diagrams.net" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/128.0.0.0 Safari/537.36" version="24.7.12">
+  <diagram name="Page-1" id="WbkuUF23vgD1m7GXST_K">
+    <mxGraphModel dx="1434" dy="746" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="waKpGf9_PmsC3nDkpMex-8" value="" style="rounded=0;whiteSpace=wrap;html=1;" parent="1" vertex="1">
+          <mxGeometry x="50" y="30" width="1040" height="680" as="geometry" />
+        </mxCell>
+        <mxCell id="waKpGf9_PmsC3nDkpMex-9" value="App&lt;div style=&quot;font-size: 15px;&quot;&gt;Work in progress doesn&#39;t display read/update/delete functionality&lt;/div&gt;" style="rounded=0;whiteSpace=wrap;html=1;fontSize=37;" parent="1" vertex="1">
+          <mxGeometry x="92.75" y="40" width="964.5" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="waKpGf9_PmsC3nDkpMex-10" value="Header" style="rounded=0;whiteSpace=wrap;html=1;fontSize=25;" parent="1" vertex="1">
+          <mxGeometry x="100" y="140" width="940" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="waKpGf9_PmsC3nDkpMex-11" value="" style="rounded=0;whiteSpace=wrap;html=1;" parent="1" vertex="1">
+          <mxGeometry x="70" y="245" width="1010" height="455" as="geometry" />
+        </mxCell>
+        <mxCell id="waKpGf9_PmsC3nDkpMex-13" value="" style="rounded=0;whiteSpace=wrap;html=1;fontSize=18;" parent="1" vertex="1">
+          <mxGeometry x="100" y="290" width="290" height="330" as="geometry" />
+        </mxCell>
+        <mxCell id="waKpGf9_PmsC3nDkpMex-14" value="" style="rounded=0;whiteSpace=wrap;html=1;" parent="1" vertex="1">
+          <mxGeometry x="410" y="290" width="320" height="400" as="geometry" />
+        </mxCell>
+        <mxCell id="waKpGf9_PmsC3nDkpMex-15" value="Item List&lt;div&gt;Clicking on item will show item details&lt;br&gt;&lt;div&gt;&lt;br&gt;&lt;/div&gt;&lt;/div&gt;" style="rounded=0;whiteSpace=wrap;html=1;fontSize=18;" parent="1" vertex="1">
+          <mxGeometry x="110" y="300" width="270" height="100" as="geometry" />
+        </mxCell>
+        <mxCell id="waKpGf9_PmsC3nDkpMex-17" value="" style="rounded=0;whiteSpace=wrap;html=1;fontSize=18;" parent="1" vertex="1">
+          <mxGeometry x="110" y="415" width="270" height="195" as="geometry" />
+        </mxCell>
+        <mxCell id="waKpGf9_PmsC3nDkpMex-20" value="New Item button&lt;div style=&quot;font-size: 15px;&quot;&gt;clicking this button will show create item form button lives in Item control&lt;/div&gt;" style="rounded=0;whiteSpace=wrap;html=1;fontSize=21;" parent="1" vertex="1">
+          <mxGeometry x="100" y="630" width="290" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="waKpGf9_PmsC3nDkpMex-21" value="New Item Form" style="rounded=0;whiteSpace=wrap;html=1;fontSize=22;" parent="1" vertex="1">
+          <mxGeometry x="430" y="300" width="280" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="waKpGf9_PmsC3nDkpMex-22" value="Submit&lt;div style=&quot;font-size: 13px;&quot;&gt;Clicking submit will add an item and then show item list component&lt;/div&gt;" style="rounded=0;whiteSpace=wrap;html=1;fontSize=17;" parent="1" vertex="1">
+          <mxGeometry x="440" y="620" width="260" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="waKpGf9_PmsC3nDkpMex-23" value="Item" style="rounded=0;whiteSpace=wrap;html=1;fontSize=20;" parent="1" vertex="1">
+          <mxGeometry x="140" y="420" width="210" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="7_pHjfs9ozELZF1Nw65--2" value="" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="760" y="250" width="310" height="440" as="geometry" />
+        </mxCell>
+        <mxCell id="waKpGf9_PmsC3nDkpMex-24" value="&lt;font style=&quot;font-size: 18px;&quot;&gt;Add to cart&lt;/font&gt;&lt;div style=&quot;&quot;&gt;&lt;font style=&quot;font-size: 13px;&quot;&gt;&amp;nbsp;When clicked decrease amount of item in stock by 1&lt;/font&gt;&lt;/div&gt;" style="rounded=0;whiteSpace=wrap;html=1;fontSize=13;" parent="1" vertex="1">
+          <mxGeometry x="140" y="465" width="210" height="70" as="geometry" />
+        </mxCell>
+        <mxCell id="waKpGf9_PmsC3nDkpMex-25" value="Restock&lt;div style=&quot;font-size: 13px;&quot;&gt;When clicked increase amount of item in stock by 1&lt;/div&gt;" style="rounded=0;whiteSpace=wrap;html=1;fontSize=18;" parent="1" vertex="1">
+          <mxGeometry x="140" y="540" width="210" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="waKpGf9_PmsC3nDkpMex-12" value="Item Control&lt;div style=&quot;font-size: 12px;&quot;&gt;This component determines which component the app should be showing&lt;/div&gt;" style="rounded=0;whiteSpace=wrap;html=1;fontSize=21;" parent="1" vertex="1">
+          <mxGeometry x="85.5" y="220" width="974.5" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="7_pHjfs9ozELZF1Nw65--3" value="Item Details" style="rounded=0;whiteSpace=wrap;html=1;fontSize=20;" vertex="1" parent="1">
+          <mxGeometry x="780" y="290" width="270" height="70" as="geometry" />
+        </mxCell>
+        <mxCell id="7_pHjfs9ozELZF1Nw65--4" value="Update" style="rounded=0;whiteSpace=wrap;html=1;fontSize=18;" vertex="1" parent="1">
+          <mxGeometry x="780" y="550" width="270" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="7_pHjfs9ozELZF1Nw65--5" value="Delete" style="rounded=0;whiteSpace=wrap;html=1;fontSize=18;" vertex="1" parent="1">
+          <mxGeometry x="780" y="620" width="270" height="60" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>
