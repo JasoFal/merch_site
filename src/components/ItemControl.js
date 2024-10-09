@@ -3,6 +3,7 @@ import ItemList from "./ItemList";
 import NewItemForm from "./NewItemForm";
 import ItemDetail from "./ItemDetails";
 import EditItemForm from "./EditItemForm";
+import { connect } from "react-redux";
 
 class ItemControl extends React.Component {
 
@@ -10,7 +11,6 @@ class ItemControl extends React.Component {
     super(props);
     this.state = {
       formVisibleOnPage: false,
-      mainItemList: [],
       selectedItem: null,
       editing: false
     };
@@ -89,11 +89,18 @@ class ItemControl extends React.Component {
   }
 
   handleAddingNewItemToList = (newItem) => {
-    const newMainItemList = this.state.mainItemList.concat(newItem);
-    this.setState({
-      mainItemList: newMainItemList,
-      formVisibleOnPage: false
-    });
+    const { dispatch } = this.props;
+    const { id, name, description, price, quantity } = newItem;
+    const action = {
+      type: "ADD_ITEM",
+      id: id,
+      name: name,
+      description: description,
+      price: price,
+      quantity: quantity,
+    }
+    dispatch(action);
+    this.setState({formVisibleOnPage: false});
   }
 
   render() {
@@ -134,5 +141,7 @@ class ItemControl extends React.Component {
     );
   };
 }
+
+ItemControl = connect()(ItemControl);
 
 export default ItemControl;
