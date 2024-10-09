@@ -31,27 +31,27 @@ describe("merchSiteReducer", () => {
     expect(merchSiteReducer({}, { type: null })).toEqual({});
   });
 
-  // test("Should successfully add new item data to mainItemList", () => {
-  //   const { name, description, price, quantity, id } = itemData;
-  //   action = {
-  //     type: "ADD_ITEM",
-  //     name: name,
-  //     description: description,
-  //     price: price,
-  //     quantity: quantity,
-  //     id: id
-  //   };
+  test("Should successfully add new item data to mainItemList", () => {
+    const { name, description, price, quantity, id } = itemData;
+    action = {
+      type: "ADD_ITEM",
+      name: name,
+      description: description,
+      price: price,
+      quantity: quantity,
+      id: id
+    };
 
-  //   expect(merchSiteReducer({}, action)).toEqual({
-  //     [id] : {
-  //       name: name,
-  //       description: description,
-  //       price: price,
-  //       quantity: quantity,
-  //       id: id
-  //     }
-  //   });
-  // });
+    expect(merchSiteReducer({}, action)).toEqual({
+      [id] : {
+        name: name,
+        description: description,
+        price: price,
+        quantity: quantity,
+        id: id
+      }
+    });
+  });
 
   // test("Should successfully delete an item", () => {
   //   action = {
