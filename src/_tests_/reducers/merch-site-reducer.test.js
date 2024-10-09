@@ -53,19 +53,19 @@ describe("merchSiteReducer", () => {
     });
   });
 
-  // test("Should successfully delete an item", () => {
-  //   action = {
-  //     type: "DELETE_ITEM",
-  //     id: 1
-  //   };
-  //   expect(merchSiteReducer(currentState, action)).toEqual({
-  //     2: {
-  //       name: "test2",
-  //       description: "description2 test2",
-  //       price: 2,
-  //       quantity: 2,
-  //       id: 2
-  //     }
-  //   });
-  // });
+  test("Should successfully delete an item", () => {
+    action = {
+      type: "DELETE_ITEM",
+      id: 1
+    };
+    expect(merchSiteReducer(currentState, action)).toEqual({
+      2: {
+        name: "test2",
+        description: "description2 test2",
+        price: 2,
+        quantity: 2,
+        id: 2
+      }
+    });
+  });
 });
