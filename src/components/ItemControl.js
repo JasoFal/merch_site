@@ -68,17 +68,17 @@ class ItemControl extends React.Component {
     this.setState({selectedItem: selectedItem});
   }
 
-  // handleIncrementItemQuantity = (id) => {
-  //   const { dispatch } = this.props;
-  //   const action = {
-  //     type: "INCREMENT_ITEM_QUANTITY",
-  //     id: id
-  //   }
-  //   dispatch(action);
-  //   this.setState({
-  //     formVisibleOnPage: false
-  //   });
-  // }
+  handleIncrementItemQuantity = (id) => {
+    const { dispatch } = this.props;
+    const action = {
+      type: "INCREMENT_ITEM_QUANTITY",
+      id: id
+    }
+    dispatch(action);
+    this.setState({
+      formVisibleOnPage: false
+    });
+  }
 
   handleDecrementItemQuantity = (id) => {
     if (this.state.selectedItem === null) {
