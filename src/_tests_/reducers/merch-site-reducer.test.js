@@ -68,4 +68,26 @@ describe("merchSiteReducer", () => {
       }
     });
   });
+
+  test("Should successfully increase item quantity by 1", () => {
+    action = {
+      type: "INCREMENT_ITEM_QUANTITY",
+      id: 1
+    };
+    expect(merchSiteReducer(currentState, action)).toEqual({
+      1: {
+        name: "test1",
+        description: "description1 test1",
+        price: 1,
+        quantity: 2,
+        id: 1
+      }, 2: {
+        name: "test2",
+        description: "description2 test2",
+        price: 2,
+        quantity: 2,
+        id: 2
+      }
+    });
+  });
 });

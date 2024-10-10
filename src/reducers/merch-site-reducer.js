@@ -15,6 +15,21 @@ const reducer = (state = {}, action) => {
       let newState = { ...state };
       delete newState[id];
       return newState;
+    case "INCREMENT_ITEM_QUANTITY":
+      // Old Version not using Object.assign
+      // return { 
+      //   ...state,
+      //   [id]: {
+      //     ...state[id],
+      //     quantity: newQuantity
+      //   }
+      // };
+      return Object.assign({}, state, {
+        [id]: {
+          ...state[id],
+          quantity: state[id].quantity + 1
+        }
+      });
     default:
       return state;
   }
