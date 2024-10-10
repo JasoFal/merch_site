@@ -5,11 +5,11 @@ import ItemControl from './ItemControl';
 function App() {
   return (
     <React.Fragment>
-      <div class="container">
-        <div class="row-center">
+      <div className="container">
+        <div className="row-center">
           <Header />
         </div>
-        <div class="row-center">
+        <div className="row-center">
           <ItemControl />
         </div>
       </div>
