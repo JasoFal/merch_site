@@ -4,6 +4,7 @@ import NewItemForm from "./NewItemForm";
 import ItemDetail from "./ItemDetails";
 import EditItemForm from "./EditItemForm";
 import { connect } from "react-redux";
+import PropTypes from "prop-types";
 
 class ItemControl extends React.Component {
 
@@ -35,55 +36,58 @@ class ItemControl extends React.Component {
   }
 
   handleEditingItemInList = (itemToEdit) => {
-    const editedMainItemList = this.state.mainItemList
-      .filter(item => item.id !== this.state.selectedItem.id)
-      .concat(itemToEdit);
+    const { dispatch } = this.props;
+    const { id, name, description, price, quantity } = itemToEdit;
+    const action = {
+      type: "ADD_ITEM",
+      id: id,
+      name: name,
+      description: description,
+      price: price,
+      quantity: quantity,
+    }
+    dispatch(action);
     this.setState({
-      mainItemList: editedMainItemList,
       editing: false,
       selectedItem: null
     });
   }
 
   handleDeletingItem = (id) => {
-    const newMainItemList = this.state.mainItemList.filter(item => item.id !== id);
-    this.setState({
-      mainItemList: newMainItemList,
-      selectedItem: null
-    });
+    const { dispatch } = this.props;
+    const action = {
+      type: "DELETE_ITEM",
+      id: id
+    }
+    dispatch(action);
+    this.setState({selectedItem: null});
   }
 
   handleChangingSelectedItem = (id) => {
-    const selectedItem = this.state.mainItemList.filter(item => item.id === id)[0];
+    const selectedItem = this.props.mainItemList[id];
     this.setState({selectedItem: selectedItem});
   }
 
-  handleIncrementItemQuantity = (id) => {
-    const findItem = this.state.mainItemList.filter(item => item.id === id)[0];
-    const updatedItem = {...findItem, quantity: findItem.quantity += 1};
-    const newListOfItems = this.state.mainItemList.filter(item => item.id !== id);
-    const updatedListOfItems = newListOfItems.concat(updatedItem);
-    this.setState({
-      mainItemList: updatedListOfItems,
-      formVisibleOnPage: false
-    });
-  }
+  // handleIncrementItemQuantity = (id) => {
+  //   const { dispatch } = this.props;
+  //   const action = {
+  //     type: "INCREMENT_ITEM_QUANTITY",
+  //     id: id
+  //   }
+  //   dispatch(action);
+  //   this.setState({
+  //     formVisibleOnPage: false
+  //   });
+  // }
 
   handleDecrementItemQuantity = (id) => {
-    const findItem = this.state.mainItemList.filter(item => item.id === id)[0];
-    const updatedItem = {...findItem, quantity: findItem.quantity -= 1};
-    const newListOfItems = this.state.mainItemList.filter(item => item.id !== id);
-    const updatedListOfItems = newListOfItems.concat(updatedItem);
     if (this.state.selectedItem === null) {
       this.setState({
-        mainItemList: updatedListOfItems,
         formVisibleOnPage: false
       });
     } else {
       this.setState({
-        mainItemList: updatedListOfItems,
         formVisibleOnPage: false,
-        selectedItem: updatedItem
       });
     }
   }
@@ -126,7 +130,7 @@ class ItemControl extends React.Component {
       buttonText = "Return to Item List";
     } else {
       currentlyVisibleState = <ItemList 
-        itemList={this.state.mainItemList} 
+        itemList={this.props.mainItemList} 
         onItemSelection={this.handleChangingSelectedItem}
         onIncreaseItemQuantity={this.handleIncrementItemQuantity} 
         onDecreaseItemQuantity={this.handleDecrementItemQuantity}
@@ -142,6 +146,16 @@ class ItemControl extends React.Component {
   };
 }
 
-ItemControl = connect()(ItemControl);
+ItemControl.propTypes = {
+  mapStateToProps: PropTypes.object
+}
+
+const mapStateToProps = state => {
+  return {
+    mainItemList: state
+  }
+}
+
+ItemControl = connect(mapStateToProps)(ItemControl);
 
 export default ItemControl;
