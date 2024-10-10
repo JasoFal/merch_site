@@ -81,15 +81,15 @@ class ItemControl extends React.Component {
   }
 
   handleDecrementItemQuantity = (id) => {
-    if (this.state.selectedItem === null) {
-      this.setState({
-        formVisibleOnPage: false
-      });
-    } else {
-      this.setState({
-        formVisibleOnPage: false,
-      });
+    const { dispatch } = this.props;
+    const action = {
+      type: "DECREMENT_ITEM_QUANTITY",
+      id: id
     }
+    dispatch(action);
+    this.setState({
+      formVisibleOnPage: false
+    });
   }
 
   handleAddingNewItemToList = (newItem) => {
