@@ -30,6 +30,13 @@ const reducer = (state = {}, action) => {
           quantity: state[id].quantity + 1
         }
       });
+    case "DECREMENT_ITEM_QUANTITY":
+      return Object.assign({}, state, {
+        [id]: {
+          ...state[id],
+          quantity: state[id].quantity - 1
+        }
+      });
     default:
       return state;
   }
